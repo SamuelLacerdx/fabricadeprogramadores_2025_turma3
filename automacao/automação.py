@@ -1,0 +1,21 @@
+import mouseinfo, pyautogui, time
+
+pyautogui.alert('Olá! Isso é um alerta, AQUI È SÃO PAULO')
+pyautogui.press('super') 
+time.sleep(2)
+pyautogui.write("navegador opera gx")
+pyautogui.press('enter') 
+pyautogui.click(314,56, duration=1)
+time.sleep(1)
+pyautogui.write("Sao Paulo fc")
+pyautogui.press('enter') 
+pyautogui.click(602,246, duration=3)
+pyautogui.click(602,246, duration=3)
+pyautogui.scroll(-3100)
+pyautogui.click(388,388)
+time.sleep(10)
+pyautogui.alert('acabou')
+pyautogui.hotkey("alt", "f4")
+time.sleep(4)
+pyautogui.press('super')
+
