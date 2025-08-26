@@ -1,5 +1,4 @@
-class marinhos():
-
+class Marinhos():
     def __init__(self, tamanho, cores, alimentacao, genero, especie):
         self.tamanho = tamanho 
         self.corres = cores 
@@ -19,5 +18,5 @@ class marinhos():
     def sexo (self):
         return print(f"o genero da minha especie é a {self.genero}")
 
-animal = marinhos(10.0, ["Azul", "Branco", "Cinza"],"Baleias (principalmente carcaças)", "carcharias", "Carcharodon")
-animal.especi()
+# animal = Marinhos(10.0, ["Azul", "Branco", "Cinza"],"Baleias (principalmente carcaças)", "carcharias", "Carcharodon")
+# animal.especi()
