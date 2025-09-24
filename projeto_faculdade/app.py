@@ -7,17 +7,25 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        return render_template('inex.html')
+        return render_template('index.html')
     elif request.method == 'POST':
         data = request.get_data()
         usuario_o_nota = json.loads(data)
 
-        user = Usuario(usuario_o_nota["usuario"], 'email', 'senha')
-        note = Nota(usuario_o_nota["nota"])
+        user = Usuario(
+                        nome = usuario_o_nota["usuario"], 
+                        email =usuario_o_nota["email"] ,
+                        senha_hash = usuario_o_nota["senha"] )
+
+        note = Nota(
+
+                    titulo = usuario_o_nota["titulo"],
+                    conteudo = usuario_o_nota ["nota"])
+
         criar_novo_usuario_e_nota(user, note)
-        return jsonify ({"msg": "Usuário e nota criados com sucesso!"})
+        return jsonify ({"message": "Usuário e nota criados com sucesso!"}), 201
     else:
         return jsonify({'error': 'Página não encontrada!'}), 404
 
-if __name__  == "__main__":
+if __name__ == "__main__":
     app.run()

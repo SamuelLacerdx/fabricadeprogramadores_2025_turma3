@@ -6,28 +6,26 @@ def criar_novo_usuario_e_nota(novo_usuario: Usuario, nova_nota: Nota):
 
     db.add(novo_usuario)
     db.commit()
-    print(f"Usuário '{novo_usuario}.nome' criado com ID: {novo_usuario}")
+    print(f"Usuário '{novo_usuario.nome}' criado com ID: {novo_usuario.id}")
 
-    nova_nota = Nota(
-    titulo = "Minha Primeira Nota com SQLAlchemy",
-    contudo = "É muito mais fácil do que escrever SQL na mão!",
-    autor = novo_usuario 
-    )
+    note = Nota(
+                id_usuario= novo_usuario.id,
+                titulo= nova_nota.titulo,
+                conteudo=nova_nota.conteudo
+                )
+
     db.add(nova_nota)
     db.commit()
 
-def atualizar_nota(id_nota: int):
-    """Exemplo de como ATUALIZAR dados."""
+def atualizar_nota(id_nota: int, titulo:str, conteudo: str):
 
     nota_para_editar = db.query(Nota).filter(Nota.id == id_nota).first()
 
     if nota_para_editar:
-        print(f"Título original: '{nota_para_editar.titulo}'")
 
-        nota_para_editar.titulo = "Lista de anotações ATULIZADA!"
-
+        nota_para_editar.titulo = titulo
+        nota_para_editar.conteudo = conteudo
         db.commit()
-        print(f"Título novo: '{nota_para_editar.titulo}'")
 
     else:
         print("Nota com ID %d nçao encontrada." % id_nota)
