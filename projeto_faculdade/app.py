@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template, json
 from main import ler_dados, atualizar_nota, criar_novo_usuario_e_nota, deletar_usuario
-from tabelas import Usuario, Nota
+from tabelas import Usuario, Nota, joinedload
 
 app = Flask(__name__)
 
@@ -26,6 +26,14 @@ def index():
         return jsonify ({"message": "Usuário e nota criados com sucesso!"}), 201
     else:
         return jsonify({'error': 'Página não encontrada!'}), 404
+
+@app.route("/api/users", methods=["GET"])
+def api_users():
+    try:
+        data = ler_dados()
+        return jsonify({"success": True, "data": data}), 200
+    except Exception as e:
+        return jsonify({"sucess": False, "error": str(e)}), 500
 
 if __name__ == "__main__":
     app.run()
