@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Extrato</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📜 Extrato</h1>
+
+        <h2>Ganhos</h2>
+        <ul>
+            {% for g in ganhos %}
+                <li>{{ g }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Despesas</h2>
+        <ul>
+            {% for d in despesas %}
+                <li>{{ d }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="/">⬅️ Voltar</a>
+    </div>
+</body>
+</html>

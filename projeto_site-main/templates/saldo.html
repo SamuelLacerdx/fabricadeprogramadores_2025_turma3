@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Saldo</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>💵 Saldo Atual</h1>
+        <p class="saldo">R$ {{ saldo | round(2) }}</p>
+        <a href="/">⬅️ Voltar</a>
+    </div>
+</body>
+</html>
