@@ -1,7 +1,7 @@
 import requests, os, bs4
 
 url = "https://www.saopaulofc.net"
-os.makedirs("vasco", exist_ok= True)
+os.makedirs("são paulo", exist_ok= True)
 while not url.endswith ("#"):
     print ("dowloanding page %s..." %url)
 res = requests.get(url)
